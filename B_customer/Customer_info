@@ -1,0 +1,31 @@
+package B_CUSTOMER;
+
+public class Customer_address {
+	private String dist;
+	private String state;
+	
+	public Customer_address(String dist, String state) {
+		super();
+		this.dist = dist;
+		this.state = state;
+	}
+
+	public String getDist() {
+		return dist;
+	}
+	public void setDist(String dist) {
+		this.dist = dist;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	@Override
+	public String toString() {
+		return dist+"\t"+ state;
+	}
+	
+}
