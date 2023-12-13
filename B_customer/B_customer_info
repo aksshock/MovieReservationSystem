@@ -1,1 +1,32 @@
 
+package B_CUSTOMER;
+
+public class Customer_address2 {
+	private String dist;
+	private String state;
+	
+	public Customer_address2(String dist, String state) {
+		super();
+		this.dist = dist;
+		this.state = state;
+	}
+
+	public String getDist() {
+		return dist;
+	}
+	public void setDist(String dist) {
+		this.dist = dist;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	@Override
+	public String toString() {
+		return "address [ dist=" + dist + ", state=" + state+ "]";
+	}
+	
+}
