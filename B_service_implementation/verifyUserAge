@@ -1,0 +1,8 @@
+package B_Service_implementation;
+
+public class invalidAgeException extends ClassNotFoundException{
+	public invalidAgeException(String message)
+	{
+		super(message);
+	}
+}
