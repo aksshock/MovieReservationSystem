@@ -1,1 +1,125 @@
 
+package B_APP;
+
+import java.util.Scanner;
+
+import B_Service_implementation.B_service_implements;
+import B_Service_implementation.B_service_implements2;
+
+public class B_APP {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		B_service_implements b1 = new B_service_implements();
+		B_service_implements2 b2 = new B_service_implements2();
+		
+		System.out.println("WELCOME TO BOOK-MY-SHOW");
+		while(true)
+		{
+			System.out.println("1 : PVR");
+			System.out.println("2 : IMAX");
+			System.out.println("3 : Exit");
+
+			String s = scan.next();
+			int x=0;
+			if(s.equals("1"))
+			{
+				System.out.println("--------------Welcome to PVR Cinema's--------------");
+				while(x<=0)
+				{
+					System.out.println("1.LEO TIME & MOVIE INFO\n2.RRR TIME & MOVIE INFO \n3.SEATAVAILABLE LEO \n4.SEATAVAILABLE RRR");
+					System.out.println("5.SEAT BOOKING LEO\n6.SEAT BOOKING RRR\n7:Find all the Person\n8:check all the name\n9.EXIT");
+					int op = scan.nextInt();
+					switch(op)
+					{
+					case 1:b1.TimeInfo_Leo();
+					break;
+
+					case 2:b1.TimeInfo_RRR();
+					break;
+
+					case 3:b1.Seatavailable_LEO();
+					break;
+
+					case 4:b1.Seatavailable_RRR();
+					break;
+
+					case 5:b1.seatallocate_LEO();
+					break;
+					
+					case 6:b1.seatallocate_rrr();
+					break;
+					
+					case 7 :b1.findAllcustomer_LEO();
+					break;
+					
+					case 8 :b1.findAllcustomer_RRR();
+					break;
+					
+					case 9:System.out.println("Thank You!!!");
+					x=1;
+					
+					default:System.out.println("Enter the Valid input");
+					break;
+					}
+				}
+			}
+			else if(s.equals("2"))
+			{
+
+				System.out.println("-----------------Welcome to IMAX Cinema's---------------------");
+				int y = 0;
+				while(y<=0)
+				{
+					System.out.println("1.JAILER TIME & MOVIE INFO\n2.KGF TIME & MOVIE INFO \n3.SEATAVAILABLE JAILER \n4.SEATAVAILABLE JAILER");
+					System.out.println("5.SEAT BOOKING JAILER\n6.SEAT BOOKING KGF\n7:check all the Person JAILER\n8:check all the Person KGF\n8:check all the name\\n9.EXIT");
+
+					int op = scan.nextInt();
+					switch(op)
+					{
+					case 1:b2.TimeInfo_JAILER();
+					break;
+
+					case 2:b2.TimeInfo_KGF();
+					break;
+					
+					case 3:b2.Seatavailable_JAILER();
+					break;
+
+					case 4:b2.Seatavailable_KGF();
+					break;
+
+					case 5:b2.seatallocate_JAILER();
+					break;
+					
+					case 6:b2.seatallocate_KGF();
+					break;
+					
+					case 7 :b2.findAllcustomer_JAILER();
+					break;
+					
+					case 8 :b2.findAllcustomer_KGF();
+					break;
+					
+					case 9:System.out.println("Thank You!!!");
+					y=1;
+					
+					default:System.out.println("Enter the Valid input");
+					break;
+					}
+				}
+			}
+			else if(s.equals("3"))
+			{
+				System.out.println("Thank You For Using The Service");
+				System.exit(0);	
+			}
+			else
+			{
+				System.out.println("Invalid input");
+
+			}
+		}
+
+	}
+	
+}
