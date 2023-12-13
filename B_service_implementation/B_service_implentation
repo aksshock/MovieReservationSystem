@@ -1,1 +1,363 @@
+package B_Service_implementation;
+
+import java.util.LinkedHashMap;
+import java.util.Scanner;
+
+import B_CUSTOMER.B_Customer_info;
+import B_CUSTOMER.Customer_address;
+import DAO.B_DAO;
+
+
+public class B_service_implements implements  B_DAO{
+	Scanner scan = new Scanner(System.in);
+	
+	{
+		for(int i=1;i<=50;i++)
+		{
+			cm.put(i, null);
+		}
+		for(int i=1;i<=40;i++)
+		{
+			sm.put(i, null);
+		}
+		for(int i=1;i<=51;i++)
+		{
+			dm.put(i, null);
+		}
+	}
+
+	{
+		for(int i=1;i<=50;i++)
+		{
+			cm1.put(i, null);
+		}
+		for(int i=1;i<=40;i++)
+		{
+			sm1.put(i, null);
+		}
+		for(int i=1;i<=51;i++)
+		{
+			dm1.put(i, null);
+		}
+	}
+
+
+	public void TimeInfo_Leo() {
+		System.out.println("-----------------------------------");
+		System.out.println("* MORNING SHOW - 10:30 SHOW\n* TICKET RATE 150\n* MOVIE DURATION 02hr:45min:30sec");
+		System.out.println();
+		System.out.println("* MATNEE SHOW -  2:30 SHOW\n* TICKET RATE 150\n* MOVIE DURATION 02hr:45min:30sec");
+		System.out.println();
+		System.out.println("* Night SHOW - 6:30 SHOW\n* TICKET RATE 150\n* MOVIE DURATION 02hr:45min:30sec");
+		System.out.println("-----------------------------------");
+	}
+
+	public void TimeInfo_RRR() {
+		System.out.println("-----------------------------------");
+		System.out.println("* MORNING SHOW - 11:30 SHOW\n* TICKET RATE 150\n* MOVIE DURATION 02hr:40min:30sec");
+		System.out.println();
+		System.out.println("* EVENING SHOW -  7:30 SHOW\n* TICKET RATE 150\n* MOVIE DURATION 02hr:40min:30sec");
+		System.out.println();
+		System.out.println("* NIGHT SHOW - 10:30 SHOW\n* TICKET RATE 150\n* MOVIE DURATION 02hr:40min:30sec");
+		System.out.println("-----------------------------------");
+	}
+
+	public void checkRooms(LinkedHashMap<Integer,B_Customer_info> l1)
+	{
+		boolean flag = false;
+		for(Integer ele:l1.keySet())
+		{
+			if(l1.get(ele)==null)
+			{
+				if(ele>50)
+				{
+					System.out.print(ele+" ");
+					if(ele==30)
+					{
+						System.out.println();
+					}
+				}
+				if(ele>40 &&ele<=50)
+				{
+					System.out.print(ele+" ");
+					if(ele==30)
+					{
+						System.out.println();
+					}
+				}
+				if(ele>30 &&ele<=40)
+				{
+					System.out.print(ele+" ");
+					if(ele==40)
+					{
+						System.out.println();
+					}
+				}
+				if(ele>20 &&ele<=30)
+				{
+					System.out.print(ele+" ");
+					if(ele==30)
+					{
+						System.out.println();
+					}
+				}
+				if(ele>10 &&ele<=20)
+				{
+					System.out.print(ele+" ");
+					if(ele==20)
+					{
+						System.out.println();
+					}
+				}
+				if(ele<=10)
+				{
+					if(ele==1)
+					{
+						System.out.print("   ");
+					}
+					System.out.print(ele+" ");
+					if(ele==10)
+					{
+						System.out.println();
+					}
+				}
+				flag=true;
+			}
+		}
+		System.out.println();
+		if(flag==false)
+		{
+			System.out.println("House Full");
+		}
+	}
+
+	public void Seatavailable_LEO() {
+		System.out.println("============10:30 SHOW==================");
+		checkRooms(cm);
+		System.out.println("===========2:30 SHOW===================");
+		checkRooms(sm);
+		System.out.println("===========6:30 SHOW=================");
+		checkRooms(dm);
+	}
+
+	public void Seatavailable_RRR() {
+		System.out.println("============11:30AM SHOW==================");
+		checkRooms(cm1);
+		System.out.println("===========2:30PM SHOW===================");
+		checkRooms(sm1);
+		System.out.println("===========10:30PM SHOW=================");
+		checkRooms(dm1);
+	}
+
+
+	// **************  SEAT BOOKING *******************************
+	public void seatallocate_LEO() {
+		System.out.println("=================MENU===================");
+		System.out.println("1.10:30\n2.2:30\n3.6:30");
+		int op = scan.nextInt();
+		switch(op) {
+		case 1:System.out.println("Enter the Seat no:");
+		int SeatNo1 = scan.nextInt();
+		if(SeatNo1>=1 && SeatNo1<=50)
+		{
+			mapRoom(cm,SeatNo1);
+		}
+		else
+		{
+			System.out.println("enter the valid Seat number!!!!");
+		}
+
+		break;
+		case 2:System.out.println("Enter the Seat no:");
+		int SeatNo2 = scan.nextInt();
+		if(SeatNo2>=1 && SeatNo2<=40)
+		{
+			mapRoom(sm,SeatNo2);
+		}
+		else
+		{
+			System.out.println("enter the valid Seat number!!!!");
+		}
+		break;
+
+		case 3:System.out.println("Enter the Seat no:");
+		int SeatNo3 = scan.nextInt();
+		if(SeatNo3>=1 && SeatNo3<=55)
+		{
+			mapRoom(dm,SeatNo3);
+		}
+		else
+		{
+			System.out.println("enter the valid Seat number!!!!");
+		}
+		break;
+		}
+	}
+
+
+	public void seatallocate_rrr() {
+		System.out.println("------------------SHOW TIMING'S--------------------");
+		System.out.println("1.10:30\n2.2:30\n3.6:30");
+		int op = scan.nextInt();
+		switch(op) {
+		case 1:System.out.println("Enter the Seat no:");
+		int SeatNo1 = scan.nextInt();
+		if(SeatNo1>=1 && SeatNo1<=50)
+		{
+			mapRoom(SeatNo1,cm1);
+		}
+		else
+		{
+			System.out.println("enter the valid Seat number!!!!");
+		}
+
+		break;
+		case 2:System.out.println("Enter the Seat no:");
+		int SeatNo2 = scan.nextInt();
+		if(SeatNo2>=1 && SeatNo2<=40)
+		{
+			mapRoom(SeatNo2,sm1);
+		}
+		else
+		{
+			System.out.println("enter the valid Seat number!!!!");
+		}
+		break;
+
+		case 3:System.out.println("Enter the Seat no:");
+		int SeatNo3 = scan.nextInt();
+		if(SeatNo3>=1 && SeatNo3<55)
+		{
+			mapRoom(SeatNo3,dm1);
+		}
+		else
+		{
+			System.out.println("enter the valid Seat number!!!!");
+		}
+		break;
+		}
+	}
+
+	private void mapRoom(LinkedHashMap<Integer, B_Customer_info> l1, int SeatNo) {
+		if(l1.get(SeatNo)==null)
+		{
+			B_Customer_info c = createCustomer();	
+			if(c.getAge()>=18)
+			{
+				a1.add(c);
+				l1.put(SeatNo, c);
+				System.out.println("Seat No: "+SeatNo +" has been allocater to "+c.getCname());
+			}
+		}
+		else {
+			System.out.println("Seat not Available...!!!!");
+		}
+	}
+	
+	private void mapRoom(int SeatNo,LinkedHashMap<Integer, B_Customer_info> l1) {
+		if(l1.get(SeatNo)==null)
+		{
+			B_Customer_info c = createCustomer();	
+			if(c.getAge()>=18)
+			{
+				a2.add(c);
+				l1.put(SeatNo, c);
+				System.out.println("Seat No: "+SeatNo +" has been allocater to "+c.getCname());
+			}
+		}
+		else {
+			System.out.println("Seat not Available...!!!!");
+		}
+
+	}
+
+	
+	private B_Customer_info createCustomer() {
+		//String cname, int id, double cphno, String cemail, address c_address
+
+		System.out.println("Enter the customer name: ");
+		String cname = scan.next();
+
+		System.out.println("Enter the customer contact number: ");
+		double cphno = scan.nextInt();
+
+		System.out.println("Enter your Age :");
+		int Age = scan.nextInt();
+
+		//int doornumber, String dist, String state, String country, int pincode
+
+
+		System.out.println("Enter the customer dist: ");
+		String dist = scan.next();
+
+		System.out.println("Enter the customer state: ");
+		String state = scan.next();
+
+		verifyUserAge.verifyAge(Age);
+		Customer_address a = new Customer_address(dist,state);
+		return new B_Customer_info(cname,cphno,a,Age);
+
+	}
+	
+	//**********  VIEW ALL DETAILS LEO ******************
+	public void findAllcustomer_LEO() {
+		if(a1.size()==0)
+		{
+			System.out.println("Data Base is Empty....!!!");
+		}
+		else
+		{
+			System.out.println("--------------------------------------------------------------");
+			System.out.println("cname\tcphno\tAge\tdist\t\state");
+			System.out.println("--------------------------------------------------------------");
+			for(B_Customer_info ele:a1)
+			{
+				System.out.println(ele);
+			}
+		}
+	}
+	//**********  VIEW ALL DETAILS RRR ******************
+		public void findAllcustomer_RRR() {
+			if(a1.size()==0)
+			{
+				System.out.println("Data Base is Empty....!!!");
+			}
+			else
+			{
+				for(B_Customer_info ele:a1)
+				{
+					System.out.println(ele);
+				}
+			}
+		}
+	
+//	public void comp_1(ArrayList<B_Customer_info> a1)
+//	{
+//		if(a1.size()==0)
+//		{
+//			System.out.println("Data Base is Empty....!!!");
+//		}
+//		else
+//		{
+//			for(B_Customer_info ele:a1)
+//			{
+//				System.out.println(ele);
+//			}
+//		}
+//	}
+//	
+//	public void comp_2(ArrayList<B_Customer_info> a2)
+//	{
+//		if(a2.isEmpty())
+//		{
+//			System.out.println("Empty List");
+//		}
+//		else {
+//			for(B_Customer_info e1:a2)
+//			{
+//				System.out.print(e1.getAge()+"\t"+e1.getCname()+"\t"+e1.getCphno()+e1.getC_address());
+//			}
+//		}
+//	}
+}
 
