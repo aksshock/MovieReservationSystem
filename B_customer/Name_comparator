@@ -1,0 +1,14 @@
+package B_CUSTOMER;
+
+import java.util.Comparator;
+
+public class NameComparator implements Comparator<B_Customer_info> 
+{
+
+	@Override
+	public int compare(B_Customer_info o1, B_Customer_info o2) {
+		
+		return o1.getCname().compareTo(o2.getCname());
+	}
+	
+}
