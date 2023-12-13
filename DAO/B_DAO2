@@ -1,1 +1,24 @@
+package DAO;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+
+import B_CUSTOMER.B_Customer_info2;
+
+
+public interface B_DAO2 {
+
+		ArrayList<B_Customer_info2> a1 = new ArrayList<B_Customer_info2>();
+		
+		//JAILER
+		LinkedHashMap<Integer,B_Customer_info2> cm = new LinkedHashMap<Integer,B_Customer_info2>();
+		LinkedHashMap<Integer,B_Customer_info2> sm = new LinkedHashMap<Integer,B_Customer_info2>();
+		LinkedHashMap<Integer,B_Customer_info2> dm = new LinkedHashMap<Integer,B_Customer_info2>();
+		
+		//KGF
+		ArrayList<B_Customer_info2> a2 = new ArrayList<B_Customer_info2>();
+		LinkedHashMap<Integer,B_Customer_info2> cm1 = new LinkedHashMap<Integer,B_Customer_info2>();
+		LinkedHashMap<Integer,B_Customer_info2> sm1 = new LinkedHashMap<Integer,B_Customer_info2>();
+		LinkedHashMap<Integer,B_Customer_info2> dm1 = new LinkedHashMap<Integer,B_Customer_info2>();
+	}
 
