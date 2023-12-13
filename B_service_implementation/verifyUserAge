@@ -1,8 +1,29 @@
 package B_Service_implementation;
 
-public class invalidAgeException extends ClassNotFoundException{
-	public invalidAgeException(String message)
+
+public class verifyUserAge extends Exception
+{
+
+	public verifyUserAge(int age)
 	{
-		super(message);
+		System.out.println("Your Age is "+age);
+	}
+	
+	
+	public static void verifyAge(int age)
+	{
+		if(age<18)
+		{
+			try 
+			{
+				throw new verifyUserAge(age);
+			}
+			catch(verifyUserAge e)
+			{
+				System.out.println("BELOW 18 YEARS NOT ALLOWED");
+			}
+		}
+		
+		
 	}
 }
