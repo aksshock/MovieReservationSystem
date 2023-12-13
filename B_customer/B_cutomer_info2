@@ -1,0 +1,67 @@
+package B_CUSTOMER;
+
+import java.util.Comparator;
+
+public class B_Customer_info2 implements Comparable<B_Customer_info2>,Comparator<B_Customer_info2> {
+	private String cname;
+	private double cphno;
+	private int Age;
+	private Customer_address2 c_address;
+
+	public B_Customer_info2(String cname, double cphno, int Age , Customer_address2 c_address) {
+		super();
+		this.cname = cname;
+		this.cphno = cphno;
+		this.c_address = c_address;
+		this.Age = Age;
+	}
+
+	public String getCname() {
+		return cname;
+	}
+
+	public void setCname(String cname) {
+		this.cname = cname;
+	}
+	
+	public int getAge() {
+		return Age;
+	}
+
+	public void setAge(int Age) {
+		this.Age = Age;
+	}
+	
+	public double getCphno() {
+		return cphno;
+	}
+
+	public void setCphno(double cphno) {
+		this.cphno = cphno;
+	}
+
+	public Customer_address2 getC_address() {
+		return c_address;
+	}
+
+	public void setC_address(Customer_address2 c_address) {
+		this.c_address = c_address;
+	}
+
+	@Override
+	public String toString() {
+		return "customer [cname=" + cname + ", cphno=" + cphno + ", Age=" + Age +", c_address="+ c_address +"]";
+	}
+
+	@Override
+	public int compareTo(B_Customer_info2 o) {
+		return this.Age=o.Age;
+	}
+
+	@Override
+	public int compare(B_Customer_info2 o1, B_Customer_info2 o2) {
+		return o1.cname.compareTo(o2.cname);
+	}
+
+	
+}
